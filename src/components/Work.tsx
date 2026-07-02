@@ -6,6 +6,41 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(useGSAP);
 
+const projects = [
+  {
+    title: "Quantum State Visualizer",
+    role: "Designer",
+    date: "AQVH 2025",
+    desc: "Built an interactive quantum visualization platform to analyze and display single-qubit states using partial trace methods.",
+    tools: "Quantum Computing, UI Design",
+    image: "/images/quantum.jpg"
+  },
+  {
+    title: "DietBox Juicebar",
+    role: "Founder & Operations Manager",
+    date: "2024 - Present",
+    desc: "Launched and operated a cloud kitchen business from concept to execution. Handled P&L management, pricing strategy, and inventory control.",
+    tools: "Business Operations, Management",
+    image: "/images/dietbox.jpg"
+  },
+  {
+    title: "WebSaga Hackathon Winner",
+    role: "Full-Stack Developer",
+    date: "STEPCONE 2026",
+    desc: "Secured 1st Place at the overnight 14-hour WebSaga Hackathon held at GMRIT, Rajam. Demonstrated rapid product development.",
+    tools: "Full Stack Development",
+    image: "/images/placeholder.webp"
+  },
+  {
+    title: "BrandForge AI",
+    role: "AI Product Developer",
+    date: "",
+    desc: "Designed and built an intelligent digital solution leveraging AI tools to accelerate brand creation for beginners.",
+    tools: "AI Tools, Full Stack Development",
+    image: "/images/placeholder.webp"
+  }
+];
+
 const Work = () => {
   useGSAP(() => {
   let translateX: number = 0;
@@ -19,7 +54,7 @@ const Work = () => {
     const parentWidth = box[0].parentElement!.getBoundingClientRect().width;
     let padding: number =
       parseInt(window.getComputedStyle(box[0]).padding) / 2;
-    translateX = rect.width * box.length - (rectLeft + parentWidth) + padding;
+    translateX = Math.max(0, rect.width * box.length - (rectLeft + parentWidth) + padding);
   }
 
   setTranslateX();
@@ -28,7 +63,7 @@ const Work = () => {
     scrollTrigger: {
       trigger: ".work-section",
       start: "top top",
-      end: `+=${translateX}`, // Use actual scroll width
+      end: `+=${translateX || 1000}`, // Ensure there's scroll width if translateX is 0
       scrub: true,
       pin: true,
       id: "work",
@@ -53,21 +88,23 @@ const Work = () => {
           My <span>Work</span>
         </h2>
         <div className="work-flex">
-          {[...Array(6)].map((_value, index) => (
+          {projects.map((project, index) => (
             <div className="work-box" key={index}>
               <div className="work-info">
                 <div className="work-title">
                   <h3>0{index + 1}</h3>
 
                   <div>
-                    <h4>Project Name</h4>
-                    <p>Category</p>
+                    <h4>{project.title}</h4>
+                    <p>{project.role} {project.date && `| ${project.date}`}</p>
                   </div>
                 </div>
-                <h4>Tools and features</h4>
-                <p>Javascript, TypeScript, React, Threejs</p>
+                <h4>Description and features</h4>
+                <p>{project.desc}</p>
+                <h4>Tools</h4>
+                <p>{project.tools}</p>
               </div>
-              <WorkImage image="/images/placeholder.webp" alt="" />
+              <WorkImage image={project.image || "/images/placeholder.webp"} alt={project.title} />
             </div>
           ))}
         </div>

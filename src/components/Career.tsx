@@ -15,43 +15,37 @@ const Career = () => {
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
+                <h4>Founder & Operations Manager</h4>
+                <h5>DietBox Juicebar</h5>
               </div>
-              <h3>20XX</h3>
+              <h3>2024 - Present</h3>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
+              Launched and operated a cloud kitchen business from concept to execution, managing daily operations, vendor relationships, and end-to-end customer experience. Handled P&L management, pricing strategy, and inventory control, successfully maintaining healthy unit economics and 25% profit margins. Gained practical entrepreneurship experience in hiring, training staff, and managing cash flow in a highly competitive market.
             </p>
           </div>
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
+                <h4>Bachelor of Technology (B.Tech)</h4>
+                <h5>BVC College of Engineering</h5>
               </div>
-              <h3>20XX</h3>
+              <h3>2023 - 2027</h3>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
+              Pursuing Bachelor of Technology (B.Tech) degree. Based in Rajahmundry, AP.
             </p>
           </div>
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
+                <h4>Diploma in Engineering</h4>
+                <h5>Sir C.R. Reddy Polytechnic</h5>
               </div>
-              <h3>NOW</h3>
+              <h3>2020 - 2023</h3>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
+              Graduated with a Diploma in Engineering from Sir C.R. Reddy Polytechnic in Eluru, AP. Achieved a percentage of 92%.
             </p>
           </div>
         </div>
