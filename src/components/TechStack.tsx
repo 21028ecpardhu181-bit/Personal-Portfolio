@@ -3,6 +3,7 @@ import { useRef, useMemo, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Environment } from "@react-three/drei";
 import { EffectComposer, N8AO } from "@react-three/postprocessing";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
   BallCollider,
   Physics,
@@ -147,6 +148,13 @@ const TechStack = () => {
       });
     });
     window.addEventListener("scroll", handleScroll);
+    
+    // Force a GSAP refresh once this lazy-loaded component mounts, 
+    // so that prior sections (like Work) have their pin heights correctly recalculated.
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 100);
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };

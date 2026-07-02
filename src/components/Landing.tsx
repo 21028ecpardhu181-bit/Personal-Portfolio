@@ -1,10 +1,17 @@
-import { PropsWithChildren } from "react";
+import { Suspense, lazy } from "react";
 import "./styles/Landing.css";
 
-const Landing = ({ children }: PropsWithChildren) => {
+const RobotScene = lazy(() => import("./RobotScene"));
+
+const Landing = () => {
   return (
     <>
       <div className="landing-section" id="landingDiv">
+        {/* 3D interactive robot — absolutely positioned inside hero only */}
+        <Suspense fallback={null}>
+          <RobotScene />
+        </Suspense>
+
         <div className="landing-container">
           <div className="landing-intro">
             <h2>Hello! I'm</h2>
@@ -26,10 +33,10 @@ const Landing = ({ children }: PropsWithChildren) => {
             </h2>
           </div>
         </div>
-        {children}
       </div>
     </>
   );
 };
 
 export default Landing;
+

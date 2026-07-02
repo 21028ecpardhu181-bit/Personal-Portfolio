@@ -1,8 +1,12 @@
 import "./styles/About.css";
+import introVideo from "../assets/my-intro.mp4";
 
 const About = () => {
   return (
     <div className="about-section" id="about">
+      <div className="about-video-container">
+        <video src={introVideo} autoPlay loop muted playsInline controls className="about-video" />
+      </div>
       <div className="about-me">
         <h3 className="title">About Me</h3>
         <p className="para">

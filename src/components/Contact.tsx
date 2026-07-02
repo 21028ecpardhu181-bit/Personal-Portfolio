@@ -3,29 +3,27 @@ import { MdArrowOutward, MdCopyright } from "react-icons/md";
 import "./styles/Contact.css";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleEmail = () => {
+  const handleSend = () => {
     if (!formData.name || !formData.message) return alert("Please fill in your name and message.");
+
+    // Prepare content
     const subject = encodeURIComponent(`Portfolio Contact from ${formData.name}`);
-    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`);
+    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nMessage:\n${formData.message}`);
+    const whatsappText = encodeURIComponent(`Hi Pardha, I am ${formData.name} (${formData.email}, Ph: ${formData.phone}).\n\n${formData.message}`);
+
+    // Open Email client
     window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=Pardhup531@gmail.com&su=${subject}&body=${body}`, "_blank");
-  };
 
-  const handleWhatsApp = () => {
-    if (!formData.name || !formData.message) return alert("Please fill in your name and message.");
-    const text = encodeURIComponent(`Hi Pardha, I am ${formData.name} (${formData.email}).\n\n${formData.message}`);
-    window.open(`https://wa.me/916301659982?text=${text}`, "_blank");
-  };
-
-  const handleSMS = () => {
-    if (!formData.name || !formData.message) return alert("Please fill in your name and message.");
-    const text = encodeURIComponent(`Hi Pardha, I am ${formData.name} (${formData.email}).\n\n${formData.message}`);
-    window.open(`sms:+916301659982?body=${text}`, "_self");
+    // Open WhatsApp (with a small delay to avoid aggressive pop-up blockers)
+    setTimeout(() => {
+      window.open(`https://wa.me/916301659982?text=${whatsappText}`, "_blank");
+    }, 500);
   };
 
   return (
@@ -107,6 +105,13 @@ const Contact = () => {
                 onChange={handleChange}
                 required
               />
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Your Phone No"
+                value={formData.phone}
+                onChange={handleChange}
+              />
             </div>
             <textarea
               name="message"
@@ -117,9 +122,7 @@ const Contact = () => {
               rows={5}
             ></textarea>
             <div className="form-actions">
-              <button type="button" onClick={handleEmail}>Send via Email</button>
-              <button type="button" onClick={handleWhatsApp}>Send via WhatsApp</button>
-              <button type="button" onClick={handleSMS}>Send via SMS</button>
+              <button type="button" onClick={handleSend}>Send Message</button>
             </div>
           </form>
         </div>

@@ -10,6 +10,7 @@
   max-width: 1920px;
   margin: auto;
   z-index: 9;
+  flex-direction: row-reverse;
 }
 .what-box {
   width: 50%;
@@ -22,7 +23,7 @@
   font-size: calc(4vw + 25px);
   line-height: calc(4vw + 20px);
   font-weight: 600;
-  margin-right: 10%;
+  margin-left: 10%;
   margin-bottom: 100px;
 }
 
@@ -34,13 +35,13 @@
 }
 .what-box-in {
   flex-direction: column;
-  height: 500px;
-  margin-left: 200px;
+  height: 520px;
+  margin-right: 100px;
   position: relative;
   display: none;
 }
 .what-content {
-  width: 450px;
+  width: 550px;
   height: 33%;
   min-height: 50%;
   transition: 0.5s;
@@ -63,13 +64,13 @@
   padding: 10px 50px;
 }
 .what-content h3 {
-  font-size: 35px;
+  font-size: 40px;
   letter-spacing: 1px;
   margin: 0;
 }
 .what-content p {
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 16px;
+  line-height: 22px;
   font-weight: 200;
   letter-spacing: 0.7px;
 }
@@ -183,7 +184,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 450px;
+  width: 550px;
 }
 .what-border2 {
   position: absolute;
@@ -246,20 +247,24 @@
 }
 @media only screen and (max-width: 1400px) {
   .what-box h2 {
-    margin-right: 20%;
+    margin-left: 20%;
   }
   .what-box-in {
     height: 400px;
+    margin-right: 50px;
   }
   .what-content h3 {
-    font-size: 28px;
+    font-size: 32px;
   }
   .what-content {
     padding: 30px;
-    width: 400px;
+    width: 480px;
   }
   .what-content p {
-    font-size: 13px;
+    font-size: 15px;
+  }
+  .what-border1 svg {
+    width: 480px;
   }
   .what-noTouch:hover,
   .what-content-active {
@@ -275,14 +280,6 @@
     font-size: 12px;
   }
 }
-@media only screen and (max-width: 1400px) {
-  .what-box-in {
-    margin-left: 50px;
-  }
-  .what-content {
-    width: 380px;
-  }
-}
 @media only screen and (max-width: 1024px) {
   .whatIDO {
     height: auto;
@@ -290,8 +287,8 @@
     padding-bottom: 50px;
   }
   .what-box-in {
-    height: 500px;
-    margin-left: -50px;
+    height: 520px;
+    margin-right: -50px;
   }
   .what-content {
     padding: 50px;
@@ -337,7 +334,7 @@
     width: 100%;
   }
   .what-box-in {
-    margin-left: 0px;
+    margin-right: 0px;
     height: 450px;
   }
   .what-content h5,
